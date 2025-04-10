@@ -44,9 +44,9 @@ public class EcomApp {
                     c.setPassword(pass);
 
                     if (repo.createCustomer(c))
-                        System.out.println("✅ Customer registered.");
+                        System.out.println("Customer registered.");
                     else
-                        System.out.println("❌ Failed to register.");
+                        System.out.println("Failed to register.");
                     break;
 
                 case 2:
@@ -67,9 +67,9 @@ public class EcomApp {
                     p.setStockQuantity(qty);
 
                     if (repo.createProduct(p))
-                        System.out.println("✅ Product created.");
+                        System.out.println("Product created.");
                     else
-                        System.out.println("❌ Failed to create product.");
+                        System.out.println("Failed to create product.");
                     break;
 
                 case 3:
@@ -77,9 +77,9 @@ public class EcomApp {
                     int pid = sc.nextInt();
                     try {
                         if (repo.deleteProduct(pid))
-                            System.out.println("✅ Product deleted.");
+                            System.out.println("Product deleted.");
                     } catch (ProductNotFoundException e) {
-                        System.out.println("❌ " + e.getMessage());
+                        System.out.println(" " + e.getMessage());
                     }
                     break;
 
@@ -97,9 +97,9 @@ public class EcomApp {
                     prod.setProductId(prodId);
 
                     if (repo.addToCart(cust, prod, q))
-                        System.out.println("✅ Product added to cart.");
+                        System.out.println("Product added to cart.");
                     else
-                        System.out.println("❌ Failed to add to cart.");
+                        System.out.println("Failed to add to cart.");
                     break;
 
                 case 5:
@@ -136,9 +136,9 @@ public class EcomApp {
                     }
 
                     if (repo.placeOrder(orderCust, orderList, address))
-                        System.out.println("✅ Order placed!");
+                        System.out.println("Order placed!");
                     else
-                        System.out.println("❌ Order failed.");
+                        System.out.println("Order failed.");
                     break;
 
                 case 7:
@@ -146,25 +146,25 @@ public class EcomApp {
                     int viewId = sc.nextInt();
                     try {
                         List<Map<Product, Integer>> orders = repo.getOrdersByCustomer(viewId);
-                        System.out.println("📦 Orders:");
+                        System.out.println("Orders:");
                         for (Map<Product, Integer> order : orders) {
                             for (Map.Entry<Product, Integer> entry : order.entrySet()) {
                                 System.out.println("-> " + entry.getKey().getName() + " x" + entry.getValue());
                             }
                         }
                     } catch (CustomerNotFoundException e) {
-                        System.out.println("❌ " + e.getMessage());
+                        System.out.println(" " + e.getMessage());
                     }
                     break;
 
                 case 8:
-                    System.out.println("👋 Exiting... Thank you!");
+                    System.out.println("Thank you!");
                     sc.close();
                     System.exit(0);
                     break;
 
                 default:
-                    System.out.println("❌ Invalid option. Try again.");
+                    System.out.println("Invalid option. Try again.");
             }
         }
     }
