@@ -3,7 +3,7 @@ package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import util.DBPropertyUtil;  // ✅ This line is important
+import util.DBPropertyUtil;  
 
 public class DBConnUtil {
 
@@ -12,9 +12,9 @@ public class DBConnUtil {
         try {
             String connectionString = DBPropertyUtil.getPropertyString(propFileName);
             conn = DriverManager.getConnection(connectionString);
-            System.out.println("✅ Connected to the database!");
+            System.out.println("Connected to the database!");
         } catch (Exception e) {
-            System.out.println("❌ Failed to connect to DB: " + e.getMessage());
+            System.out.println("Failed to connect to DB: " + e.getMessage());
         }
         return conn;
     }
